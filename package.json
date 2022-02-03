@@ -15,6 +15,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.7"
   },
+  "engines":{
+    "node":"14.17.0"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
