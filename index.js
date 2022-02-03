@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = 3000;
+let port = process.env.PORT || 3000;
 const hostname = "0.0.0.0";
 const { mongoUrl } = require("./keys");
 require("./models/User");
@@ -38,6 +38,6 @@ app.get("/something", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(PORT, () => {
-  console.log(`server running at http://${hostname}${PORT}`);
+app.listen(port, () => {
+  console.log(`server running at http://${hostname}${port}`);
 });
