@@ -34,6 +34,6 @@ app.post("/", requireToken, (req, res) => {
   res.send({ data });
 });
 
-app.listen(PORT, hostname, () => {
+app.listen(PORT, () => {
   console.log(`server running at http://${hostname}${PORT}`);
 });
