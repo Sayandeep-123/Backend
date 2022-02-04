@@ -57,9 +57,13 @@ router.post("/addmem", async (req, res) => {
   }
   try {
     const event = await Event.findOne({ _id });
-    event.members.push({ name, email });
-    await event.save();
-    return res.send({ message: "Member added successfully", event });
+    const found = event.members.some((el) => el.email === email);
+    if (!found) {
+      event.members.push({ name, email });
+      await event.save();
+      return res.send({ message: "Member added successfully", event });
+    }
+    return res.send({ message: "You are already added" });
   } catch (err) {
     res.status(402).send(err.message);
   }
