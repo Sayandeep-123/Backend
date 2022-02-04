@@ -51,6 +51,7 @@ const eventSchema = mongoose.Schema({
   members: {
     type: [memSchema],
     required: false,
+    sparse: true,
   },
   payment: {
     type: [paySchema],
