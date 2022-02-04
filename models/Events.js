@@ -23,6 +23,7 @@ const memSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
+    sparse: true,
   },
   email: {
     type: String,
