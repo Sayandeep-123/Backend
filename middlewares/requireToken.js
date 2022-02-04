@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
-const { jwtkey } = require("../keys");
+const jwtkey = process.env.JWT_KEY;
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;

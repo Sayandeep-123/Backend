@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const app = express();
 let port = process.env.PORT || 3000;
 const hostname = "0.0.0.0";
-const { mongoUrl } = require("./keys");
 require("./models/User");
 require("./models/Events");
 const authRoutes = require("./Routes/authRoutes");
@@ -14,7 +13,7 @@ app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(eventRoutes);
 
-mongoose.connect(mongoUrl);
+mongoose.connect(process.env.MONGO_URL);
 
 mongoose.connection.on("connected", () => {
   console.log("connected to mongo !");
