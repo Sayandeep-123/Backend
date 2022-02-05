@@ -63,7 +63,7 @@ router.post("/addmem", async (req, res) => {
       await event.save();
       return res.send({ message: "Member added successfully", event });
     }
-    return res.send({ message: "You are already added" });
+    return res.status(402).send({ message: "You are already added" });
   } catch (err) {
     res.status(402).send(err.message);
   }
